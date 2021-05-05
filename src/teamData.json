@@ -1,0 +1,17 @@
+{
+    "TeamID": 1,
+    "Key": "LAD",
+    "Active": true,
+    "City": "Los Angeles",
+    "Name": "Dodgers",
+    "StadiumID": 31,
+    "League": "NL",
+    "Division": "West",
+    "PrimaryColor": "005A9C",
+    "SecondaryColor": "FFFFFF",
+    "TertiaryColor": "EF3E42",
+    "QuaternaryColor": "",
+    "WikipediaLogoUrl": "https://upload.wikimedia.org/wikipedia/en/a/a0/Los_Angeles_Dodgers_logo_%28low_res%29.svg",
+    "WikipediaWordMarkUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f6/LA_Dodgers.svg",
+    "GlobalTeamID": 10000001
+  }
