@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { getTeams } from "./Utility"
 import Teams from "./Teams"
 import HomeTeam from "./HomeTeam"
+import AwayTeam from "./AwayTeam"
 import "./App.css"
 
 class App extends Component {
@@ -33,10 +34,14 @@ class App extends Component {
           allActiveTeams={this.state.allActiveTeams}
           setTeam={this.setTeam}
         />
-        <HomeTeam
+        {this.state.currentTeams[0] && <HomeTeam
           homeTeam={this.state.currentTeams[0]}
           allActiveTeams={this.state.allActiveTeams}
-       />
+        />}
+        {this.state.currentTeams[1] && <AwayTeam
+          awayTeam={this.state.currentTeams[1]}
+          allActiveTeams={this.state.allActiveTeams}
+        />}
       </div>
     )
   }

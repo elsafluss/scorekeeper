@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-class HomeTeam extends Component {
+class AwayTeam extends Component {
   constructor() {
     super()
     this.state = {}
@@ -8,16 +8,16 @@ class HomeTeam extends Component {
 
   render() {
     const teamDetails = this.props.allActiveTeams.filter(
-      (team) => team.Key === this.props.homeTeam
+      (team) => team.Key === this.props.awayTeam
     )
 
     return (
       <>
-        <p>Home Team is {teamDetails[0].Name}</p>
+        <p>Away Team is {teamDetails[0].Name}</p>
         <img src={teamDetails[0].WikipediaLogoUrl} alt="team logo"></img>
-      </> 
+      </>
     )
   }
 }
 
-export default HomeTeam
+export default AwayTeam
