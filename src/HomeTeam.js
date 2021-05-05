@@ -6,12 +6,18 @@ class HomeTeam extends Component {
     this.state = {}
   }
 
-
-  // filter through this.props.allActiveTeams to find the 
-  // team.Key that matches this.props.homeTeam
-  // and show their WikipediaLogoUrl in an img tag
   render() {
-    return <p>Home Team is {this.props.homeTeam}</p>
+      console.log(this.props.allActiveTeams);
+    const teamDetails = this.props.allActiveTeams.filter(
+      (team) => team.Key === this.props.homeTeam
+    )
+    console.log('teamdetails', teamDetails);
+    return (
+      <>
+        <p>Home Team is {teamDetails[0].Name}</p>
+        <img src={teamDetails[0].WikipediaLogoUrl} alt="team logo"></img>
+      </>
+    )
   }
 }
 
