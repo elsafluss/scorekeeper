@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { getTeams } from "./Utility"
+import { getTeams, getPlayers } from "./Utility"
 import Teams from "./Teams"
 import HomeTeam from "./HomeTeam"
 import AwayTeam from "./AwayTeam"
@@ -11,7 +11,8 @@ class App extends Component {
     super()
     this.state = {
       allActiveTeams: [],
-      currentTeams: []
+      currentTeams: [],
+      allPlayers: []
     }
     this.setTeam = this.setTeam.bind(this)
 
@@ -23,9 +24,23 @@ class App extends Component {
     )
   }
 
+  filterPlayersByActive(players) {
+    const activePlayers = players.filter((player) => player.Status === "Active")
+    activePlayers.sort((a, b) => {
+      if(a.LastName < b.LastName) {
+        return -1
+      } else {
+        return 1
+      }
+    })
+    this.setState({ activePlayers: activePlayers })
+  }
+
   setTeam(homeTeam, awayTeam) {
     const currentTeams = [homeTeam, awayTeam]
     this.setState({ ...this.state, currentTeams: currentTeams })
+    getPlayers(homeTeam).then((data) => this.setState({ allPlayers: data }))
+    getPlayers(awayTeam).then((data) => this.setState({ ...this.state, allPlayers: data }))
   }
 
   render() {
@@ -43,7 +58,7 @@ class App extends Component {
           awayTeam={this.state.currentTeams[1]}
           allActiveTeams={this.state.allActiveTeams}
         />}
-        {this.state.currentTeams.length === 2 && <Players /> }
+        {this.state.currentTeams.length === 2 && <Players currentPlayers={this.state.currentPlayers} /> }
       </div>
     )
   }
