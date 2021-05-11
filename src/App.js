@@ -61,7 +61,8 @@ class App extends Component {
         getAwayPlayers(awayTeam).then((awayData) =>
           this.filterPlayersByActive(awayData)
         )
-      ) // 
+      ) // async await needed? home/away player data is coming through
+      // but they're overwriting each other at some point
   }
 
   render() {
