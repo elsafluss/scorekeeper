@@ -11,7 +11,8 @@ class Players extends Component {
   }
 
   render() {
-    console.log(this.props.currentPlayers)
+    console.log('home', this.props.currentHomePlayers)
+    console.log('away', this.props.currentAwayPlayers)
     return (
       <div>
         <p>choose starting players</p>
