@@ -3,6 +3,7 @@ import { getTeams } from "./Utility"
 import Teams from "./Teams"
 import HomeTeam from "./HomeTeam"
 import AwayTeam from "./AwayTeam"
+import Players from "./Players"
 import "./App.css"
 
 class App extends Component {
@@ -42,6 +43,7 @@ class App extends Component {
           awayTeam={this.state.currentTeams[1]}
           allActiveTeams={this.state.allActiveTeams}
         />}
+        {this.state.currentTeams.length === 2 && <Players /> }
       </div>
     )
   }
